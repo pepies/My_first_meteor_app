@@ -1,0 +1,15 @@
+<template name="home">
+  <div class="ui middle aligned grid wrapper">
+    <div class="column centered twelve wide">
+      <img src="img/logo.svg" class="ui image centered">
+      <div class="ui section horizontal divider" style="overflow:visible;">
+        <select class="ui search dropdown" id="search-select">
+          <option value="">fakulta</option>
+          {{#each get_fakulta}}
+            <option value="{{id}}"><b>{{univerzita}}</b> {{fakulta}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+  </div>
+</template>

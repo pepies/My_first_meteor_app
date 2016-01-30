@@ -1,0 +1,56 @@
+<template name="layout">
+  <div class="pusher"> 
+		{{> yield}}
+  </div>
+    {{> sidebar}}
+    {{> modal_upload}}
+
+</template>
+
+<template name="sidebar">
+	<div class="ui left vertical sidebar labeled icon menu" id="menu">
+	  <a class="item">
+	    <i class="home icon"></i>
+	    Home
+	  </a>
+	  <a class="item" id="open_add_modal">
+	    <i class="plus layout icon"></i>
+	    Pridaj
+	  </a>
+	</div>
+</template>
+
+<template name="modal_upload">
+<div class="ui basic modal">
+  <i class="huge close icon"></i>
+  <div class="header">
+    Nahrávanie nového súboru
+  </div>
+  <div class="image content">
+    <div class="image">
+      <i class="archive icon"></i>
+    </div>
+    <div class="description">
+      <div class="ui piled segment">
+      {{> inputUpload}}
+      </div>
+    </div>
+  </div><!--
+  <div class="actions">
+    <div class="two fluid ui inverted buttons">
+      <div class="ui red basic inverted button">
+        <i class="remove icon"></i>
+        Zatvor
+      </div>
+      <div class="ui green basic inverted button">
+        <i class="checkmark icon"></i>
+        Yes
+      </div>
+    </div>
+  </div>
+      -->
+</div>
+</template>
+<template name="inputUpload">
+	<input type="file" class="ui input" id="uploadFileInput" placeholder="TEST" />
+</template>
