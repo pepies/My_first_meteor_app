@@ -9,13 +9,12 @@ Template.sidebar.events({
   }
 });
 
-Template.inputUpload.events({
-  'change #uploadFileInput': function(event, template) {
-    var files = event.target.files;
-    for (var i = 0, ln = files.length; i < ln; i++) {
-      Files.insert(files[i], function (err, fileObj) {
-      	console.log(err);
-      });
+Template.inputUpload.helpers({
+  specificFormData: function() {
+    return {
+      id: this._id,
+      other: this.other,
+      hard: 'Lolcats'
     }
   }
-})
+});

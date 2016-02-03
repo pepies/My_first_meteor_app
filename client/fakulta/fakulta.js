@@ -1,5 +1,8 @@
 Template.fileView.helpers({
-  file: function () {
-    return Files.find(); // Where Images is an FS.Collection instance
+   myCallbacks: function() {
+    return {
+        formData: function() { return { id: "232323", other: Session.get("ReactiveParam") } },
+        finished: function(index, fileInfo, context) { }
+    }
   }
 });

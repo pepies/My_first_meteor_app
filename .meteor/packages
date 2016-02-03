@@ -24,3 +24,5 @@ iron:router
 semantic:ui-dropdown
 cfs:standard-packages
 cfs:filesystem
+tomi:upload-jquery
+tomi:upload-server
