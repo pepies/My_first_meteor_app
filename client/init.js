@@ -10,7 +10,7 @@ Uploader.localisation = {
     cancelled: "Zrušené",
     remove: "Odstráň",
     upload: "Nahraj",
-    done: "Vybavené",
+    done: "Hotovčo",
     cancel: "Zruš"
-}
-Uploader.logLevel = Uploader.logLevels.debug
+};
+Uploader.logLevel = Uploader.logLevels.debug;

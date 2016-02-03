@@ -1,47 +1,82 @@
 <template name="fakulta"> 
-<div class="ui stackable borderless page menu">
+  <div class="ui stackable borderless page menu">
     <div class="left item">
-        <a class="item" id="open_sidebar">
-          <i class="sidebar icon"></i> Menu
-        </a>
-        <!--<a class="item">Option 1</a>-->
-		  <div class="ui breadcrumb item">
-  		  <a class="section">STU {{router_nadpis}}</a>
-  		  <i class="right angle icon divider"></i>
-  		  <a class="section">1. ročník</a>
-  		  <i class="right angle icon divider"></i>
-  		  <div class="active section">Matematika</div>
+      <a class="item" id="open_sidebar">
+        <i class="sidebar icon"></i> Menu
+      </a>
+      <!--<a class="item">Option 1</a>-->
+      <div class="ui breadcrumb item">
+        <a class="section">STU {{router_nadpis}}</a>
+        <i class="right angle icon divider"></i>
+        <a class="section">1. ročník</a>
+        <i class="right angle icon divider"></i>
+        <div class="active section">Matematika</div>
       </div>
     </div>
     <div class="right item">
 
     </div>
   </div>
-		{{> fileView}}
+  {{> uploadedInfo}}
+  {{> modal_upload}}
 </template>
 
-<template name="fileView">
-<div class="ui container">
-  <div class="ui four doubling stackable cards">
-    {{#each file}}
-	  <div class="ui card">
-	    <div class="content">
-	      <!-- <img class="right floated mini ui image" src=""> -->
-	      <div class="header">
-	        {{this.name}}
-	      </div>
-	      <div class="meta">
-	        {{this.type}}
-	      </div>
-	    </div>
-	    <div class="extra content">
-	      <div class="ui two buttons">
-	        <div class="ui basic green button">Like</div>
-	        <div class="ui basic red button">Dislike</div>
-	      </div>
-	    </div>
-	  </div>
-    {{/each}}
+<template name="uploadedInfo">
+  <div class="ui container">
+    <div class="ui four doubling stackable cards">
+
+     <div class="ui card">
+      <div class="content">
+        <a class="item" id="open_add_modal">
+          <i class="plus layout icon"></i>
+          Pridaj
+        </a>
+      </div>
+    </div>
+
+    {{#with file}}
+    <div class="ui card">
+     <div class="content">
+       <div class="header">
+         {{name}}
+       </div>
+       <div class="meta">
+         {{type}}{{size}}
+       </div>
+       <a href="/upload/{{path}}">{{src}}</a>
+     </div>
+     <div class="extra content">
+       <div class="ui two buttons">
+         <div class="ui basic green button">Download</div>
+         <div class="ui basic red button">--</div>
+       </div>
+     </div>
    </div>
+   {{/with}}
+ </div>
 </div>
+</template>
+
+<template name="modal_upload">
+  <div class="ui basic modal">
+    <i class="huge close icon"></i>
+    <div class="header">
+      Nahrávanie nového súboru
+    </div>
+    <div class="grid">
+      <div class="ui sixteen wide row">
+        <div class="ui container description">
+          <div class="ui piled eight wide segment">
+            <p class="inputUpload">
+              {{> inputUpload}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="inputUpload">
+  {{> upload_semanticUI multiple=true}}
 </template>
