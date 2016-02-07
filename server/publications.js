@@ -6,4 +6,6 @@ Meteor.publish('uploads', function() {
   return Uploads.find();
 })
 
-// this should be probably somewher
+Meteor.publish('fakulty', function() {
+  return Fakulty.find();
+})

@@ -25,36 +25,34 @@
   <div class="ui container">
     <div class="ui four doubling stackable cards">
 
-     <div class="ui card">
-      <div class="content">
-        <a class="item" id="open_add_modal">
-          <i class="plus layout icon"></i>
-          Pridaj
-        </a>
+      {{#each uploads}}
+      <div class="ui card">
+        <div class="ui slide masked reveal image">
+          <img src="{{src}}" class="visible content">
+          <div  class="hidden content" >
+            aasdad
+          </div>
+        </div>
+        <div class="content">
+          <span class="header">{{name}}</span>
+        </div>
+        <div class="extra content">
+          <a href="/upload/{{path}}" download>
+            <div class="ui bottom attached button">
+              <i class="save icon"></i>
+              Ulož
+            </div>
+          </a>
+        </div>
       </div>
-    </div>
+      {{/each}}
 
-    {{#with file}}
-    <div class="ui card">
-     <div class="content">
-       <div class="header">
-         {{name}}
-       </div>
-       <div class="meta">
-         {{type}}{{size}}
-       </div>
-       <a href="/upload/{{path}}">{{src}}</a>
-     </div>
-     <div class="extra content">
-       <div class="ui two buttons">
-         <div class="ui basic green button">Download</div>
-         <div class="ui basic red button">--</div>
-       </div>
-     </div>
-   </div>
-   {{/with}}
- </div>
-</div>
+      <a class="item" id="open_add_modal">
+        <i class="plus huge layout icon"></i>
+      </a>
+
+    </div>
+  </div>
 </template>
 
 <template name="modal_upload">
